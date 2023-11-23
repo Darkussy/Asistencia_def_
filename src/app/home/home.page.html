@@ -1,20 +1,128 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+  <ion-header collapse="condense"> </ion-header>
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-avatar id="avatar" #avatar>
+      <img
+        src="https://i.pinimg.com/originals/4a/0c/6d/4a0c6d09f0e492b8a463d21ab58a39a1.jpg"
+        alt="Silhouette of a person's head"
+      />
+    </ion-avatar>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Inicio Sesion</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <!-- <ion-item>
+            <ion-input [(ngModel)]="user.usuario" label="Nombre Usuario" labelPlacement="floating"
+              placeholder="Ingrese su Usuario"></ion-input>
+          </ion-item> -->
+          <!--  -->
+          <ion-item>
+            <ion-label position="floating">Nombre usuario</ion-label>
+            <ion-input
+              [(ngModel)]="user.usuario"
+              labelPlacement="floating"
+              placeholder="Ingrese su Usuario"
+            >
+            </ion-input>
+          </ion-item>
+          <!--  -->
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input
+              [(ngModel)]="user.password"
+              type="password"
+              labelPlacement="floating"
+              placeholder="Ingrese su Contraseña"
+            >
+            </ion-input>
+          </ion-item>
+          <!--  -->
+
+          <ion-item>
+            <ion-toggle
+              aria-label="Success toggle"
+              color="success"
+              [checked]="true"
+              >Recuerdame</ion-toggle
+            > </ion-item
+          ><br />
+          <!-- --------------------------- -->
+
+          <ion-buttons id="present-alert" slot="primary">
+            <ion-button> Recuperar Contraseña </ion-button>
+          </ion-buttons>
+
+          <!-- Boton nuevo de inicio de sesion -->
+          <!-- <ion-button
+            expand="block"
+            color="warning"
+            id="conectar"
+            (click)="login(user.usuario,user.password)"
+            shape="round"
+            >Iniciar Sesión</ion-button> -->
+          <!-- boton anterior de inicio de sesion--------------------------------- -->
+          <ion-button
+            expand="block"
+            color="warning"
+            id="conectar"
+            (click)="SendInformacion()"
+            shape="round"
+            >Iniciar Sesión</ion-button>
+          
+          <!-- --------------------------- -->
+
+          <ion-buttons
+            >¿No tienes cuenta?
+            <ion-button id="Registrate" (click)="registrate()"
+              >Registrate</ion-button
+            >
+          </ion-buttons>
+
+          <div>
+            <!-- --------------------------- -->
+            <h1>{{mensaje}}</h1>
+            <br />
+          </div>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
   </div>
+  <ion-alert
+    trigger="present-alert"
+    header="Recuperar Contraseña "
+    subHeader="Ingresa tu e-mail para recuperar tu Contraseña"
+    [buttons]="alertButtons"
+  >
+  </ion-alert>
 </ion-content>
+
+<!-- Modal Section Begin -->
+<!-- <ion-modal trigger="open-modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Salir</ion-button>
+          </ion-buttons>
+          <ion-title>Registro</ion-title>
+          <ion-buttons slot="end" id="present-alert">
+            <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input [(ngModel)]="user.usuario" label="Nombre Usuario" labelPlacement="floating"
+            placeholder="Ingrese su Usuario"></ion-input>
+        </ion-item>
+        <ion-item>
+          
+          <ion-input [(ngModel)]="user.password" label="Contraseña" type="password" labelPlacement="floating"
+            placeholder="Ingrese su Contraseña"></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>  -->
+<!-- Modal Section End -->

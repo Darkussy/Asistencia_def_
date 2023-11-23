@@ -1,0 +1,70 @@
+
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Opciones</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      
+      <!-- Agrega el ion-back-button al lado izquierdo -->
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <!--  -->
+      <ion-title>Registro</ion-title>
+      <!--  -->
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <!--  -->
+    </ion-toolbar>
+    <!--  -->
+  </ion-header>
+  
+  
+  <ion-content class="ion-padding">
+    <ion-card>
+      <div class="container">
+        <ion-card-title>Registro Usuario</ion-card-title>
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Ingrese Email</ion-label>
+            <ion-input [(ngModel)]="N_user.Mail" type="label" labelPlacement="floating"
+            placeholder="Ingrese su correo"> </ion-input>
+          </ion-item>
+          <!--  -->
+          <ion-item>
+            <ion-label position="floating">Ingrese Nombre</ion-label>
+            <ion-input [(ngModel)]="N_user.Nombre" type="label" labelPlacement="floating"
+            placeholder="Ingrese su nombre"> </ion-input>
+          </ion-item>
+          <!--  -->
+          <ion-item>
+            <ion-label position="floating">Ingrese Contraseña</ion-label>
+            <ion-input [(ngModel)]="N_user.Contra" type="password" labelPlacement="floating"
+            placeholder="Ingrese su Contraseña"> </ion-input>
+          </ion-item>
+          <!--  -->
+          <ion-item>
+            <ion-label position="floating">Repetir Contraseña</ion-label>
+            <ion-input [(ngModel)]="N_user.Confirmacion"  type="password" labelPlacement="floating"
+              placeholder="Repita su Contraseña  ">
+            </ion-input>
+          </ion-item>   
+          <!--  --> 
+          <ion-button expand="block" color="warning" id="conectar" (click)="confirma()"  shape="round">Registrar</ion-button><br>
+          <ion-label>{{this.mensaje}}</ion-label>
+          <br>
+        </ion-list>
+      </div>    
+      <ion-card-content>
+        
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</div>
