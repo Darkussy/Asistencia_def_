@@ -39,8 +39,8 @@ export class RegistroPage implements OnInit {
     })
   }
   
-  Validacion(){
-    if(this.N_user.Mail.trim() !="" || this.N_user.Nombre.trim() !="" ){
+  Validacion1(){
+    if(this.N_user.Mail.trim() !="" && this.N_user.Nombre.trim() !="" ){
       if(this.N_user.Contra.trim() !="" && this.N_user.Confirmacion.trim() !=""){
         if(this.N_user.Contra == this.N_user.Confirmacion ){
           this.confirma();
@@ -48,10 +48,41 @@ export class RegistroPage implements OnInit {
           this.mensaje ="Las contraseñas deben coincidir";
         }
       }else{
-        this.mensaje ="Debe ingresar su nueva contraseña";
+        this.mensaje ="Debe ingresar una contraseña";
       }
     }else{
       this.mensaje ="Debe ingresar su mail y/o nombre";
+    }
+  }
+
+  Validacion(){
+    if(this.N_user.Mail.trim() !=""){
+      /* ---------------------------- */
+      if (this.N_user.Mail.includes("@duocuc.cl") || this.N_user.Mail.includes("@profesor.duoc.cl")  ) {
+      /* ---------------------------- */
+        if (this.N_user.Nombre.trim() !="") {
+        /* ---------------------------- */
+          if(this.N_user.Contra.trim() !="" && this.N_user.Confirmacion.trim() !=""){
+            if(this.N_user.Contra == this.N_user.Confirmacion ){
+              this.confirma();
+            }else{
+              this.mensaje ="Las contraseñas deben coincidir";
+            }
+          }else{
+            this.mensaje ="Debe ingresar una contraseña";
+          }
+        /* ---------------------------- */
+        } else {
+          this.mensaje ="Debe ingresar su nombre ";
+        }
+      /* ---------------------------- */
+
+      } else {
+        this.mensaje ="Debe ingresar un correo de duoc valido ";
+      }
+      /* ---------------------------- */
+    }else{
+      this.mensaje ="Debe ingresar un correo ";
     }
   }
 

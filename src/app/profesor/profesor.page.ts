@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
+import { AutenticacionService } from '../servicios/autenticacion.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthGuard } from '../auth.guard';
 })
 export class ProfesorPage implements OnInit {
 
-  constructor(private router: Router, private activatedRouter: ActivatedRoute, private authGuard: AuthGuard ) { }
+  constructor(private router: Router, private activatedRouter: ActivatedRoute, private authGuard: AuthGuard, private auth: AutenticacionService ) { }
 
   public alertButtons = ['OK'];
   public user = {
@@ -35,4 +36,9 @@ export class ProfesorPage implements OnInit {
       }
     })
   }
+
+  cerrarSesion(){
+    this.auth.logout();
+  }
+
 }

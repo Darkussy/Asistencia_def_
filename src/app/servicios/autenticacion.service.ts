@@ -47,15 +47,6 @@ export class AutenticacionService {
     }
   }
 
-  //Async Funciona como una declaracion de funcion asincrona
-  //Esto permite operar la funciona de forma asincronica generando un loop con una Promise la cual devuelve un resultado positivo o negativo
-  //las funciones marcadas como async pueden utilizar la palabra clave await
-  //Await define una utilidad que espera si es que la promise es resuelta o rechazada
-  //Formas mas complejas se pueden generar usando una funcion .then() definiendo los sucesos de la funcion en caso negativo y caso positivo
-
-  //Adicionalmente una promise en JS o TS es una operacion que aun no se completa pero que lo hara en el futuro 
-  //Estas promesas son la forma en que el codigo puede manejar ciertas operaciones con poosibiliad de fallo (Similar a trabajar con try/Catch)
-  // Una promise puede tener los sig estados : Pendiente || Cumplida || Rechazada
   async login(usuario: string, password: string): Promise<boolean> {
     //Llamamos el arreglo desde el Storage
     const users: User[] = (await this.local.get('users')) || [];
